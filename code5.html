@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CreativeFolio: A Modern Portfolio</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad390, #f6d365, #96e6a1);
+        background-size: 400% 400%;
+        animation: gradientShift 12s ease infinite;
+        color: #222;
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    header {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 25px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        color: #222;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.6);
+        padding: 10px;
+        gap: 20px;
+        position: sticky;
+        top: 80px;
+        z-index: 999;
+        backdrop-filter: blur(6px);
+    }
+
+    nav button {
+        background: none;
+        border: none;
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        cursor: pointer;
+        position: relative;
+    }
+
+    nav button::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background: #ff6f61;
+        transition: 0.3s;
+    }
+
+    nav button:hover::after {
+        width: 100%;
+    }
+
+    #content {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        animation: fadeIn 0.6s ease-in-out;
+    }
+
+    h2 {
+        color: #ff6f61;
+        margin-bottom: 15px;
+    }
+
+    /* About Section */
+    .about-card {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+    .about-card:hover {
+        transform: translateY(-5px);
+    }
+    .about-card img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 3px solid #ff6f61;
+    }
+
+    /* Projects */
+    .project {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: linear-gradient(135deg, #f6d365, #fda085);
+        color: #222;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+    .project:hover {
+        transform: scale(1.05);
+    }
+
+    /* Contact */
+    .contact-info p {
+        margin: 12px 0;
+    }
+    .contact-info a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #ff6f61;
+        transition: 0.3s;
+    }
+    .contact-info a:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 15px;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #555;
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    🎨 CreativeFolio: A Modern Portfolio
+</header>
+
+<nav>
+    <button onclick="showSection('home')">🏠 Home</button>
+    <button onclick="showSection('about')">👨‍💻 About</button>
+    <button onclick="showSection('projects')">📂 Projects</button>
+    <button onclick="showSection('contact')">📞 Contact</button>
+</nav>
+
+<div id="content"></div>
+
+<footer>
+    © 2025 CreativeFolio | Designed with ❤ using HTML, CSS & JS
+</footer>
+
+<script>
+    function showSection(section) {
+        let content = document.getElementById('content');
+        if (section === 'home') {
+            content.innerHTML = `
+                <h2>Welcome to CreativeFolio!</h2>
+                <p>This portfolio is designed with a vibrant gradient theme to showcase creativity, skills, and projects in a modern style. Navigate through the sections to explore more.</p>
+            `;
+        } else if (section === 'about') {
+            content.innerHTML = `
+                <h2>About Me</h2>
+                <div class="about-card">
+                    <img src="https://via.placeholder.com/120" alt="Profile Picture">
+                    <p>Hello! I’m a creative developer with a passion for designing colorful, modern, and user-friendly websites using HTML, CSS, and JavaScript.</p>
+                </div>
+            `;
+        } else if (section === 'projects') {
+            content.innerHTML = `
+                <h2>My Projects</h2>
+                <div class="project"><strong>🎨 CreativeFolio</strong> - A vibrant portfolio with gradient effects.</div>
+                <div class="project"><strong>📝 To-Do Manager</strong> - A simple but stylish task manager.</div>
+                <div class="project"><strong>🧮 Gradient Calculator</strong> - A calculator with a modern colorful UI.</div>
+            `;
+        } else if (section === 'contact') {
+            content.innerHTML = `
+                <h2>Contact Me</h2>
+                <div class="contact-info">
+                    <p><strong>Email:</strong> kowshikaarumugam123@gmail.com</p>
+                    <p><strong>Phone:</strong> +91 93456 56994</p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/kowshi001" target="_blank">github.com/kowshi001</a></p>
+                </div>
+            `;
+        }
+    }
+
+    // Default load
+    showSection('home');
+</script>
+
+</body>
+</html>
